@@ -1,0 +1,40 @@
+{
+	"point": {
+		"properties": {
+			"cat": {
+				"type": "string",
+				"store": "yes"
+			},
+			"city": {
+				"type": "string",
+				"store": "yes"
+			},
+			"location": {
+				"type": "geo_point",
+				"lat_lon": true,
+				"geohash": true,
+				"store": "yes"
+			},
+			"name": {
+				"type": "string",
+				"store": "yes"
+			},
+			"phone": {
+				"type": "string",
+				"store": "yes"
+			},
+			"state": {
+				"type": "string",
+				"store": "yes"
+			},
+			"street": {
+				"type": "string",
+				"store": "yes"
+			},
+			"zip": {
+				"type": "string",
+				"store": "yes"
+			}
+		}
+	}
+}

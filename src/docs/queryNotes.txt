@@ -1,0 +1,43 @@
+{
+  "query": {
+    "filtered": {
+      "query": {
+        "field": {
+          "cat": "sb"
+        }
+      },
+      "filter": {
+        "geo_distance": {
+          "distance": "12km",
+          "location": {
+            "lat": 37.2163,
+            "lon": -121.97496
+          }
+        }
+      }
+    }
+  }
+}
+
+Bulk Load
+$ curl -s -XPOST elastic.rhcloud.com/points/point/_bulk --data-binary @out.json; echo
+
+
+Add Mapping
+$ curl -XPUT elastic.rhcloud.com/points/point/_mapping' --data-binary @mapping.json; echo
+
+In mapping.json
+{
+    "point" : {
+        "properties" : {
+			"cat" : {"type" : "string", "store" : "yes"},		
+			"city" : {"type" : "string", "store" : "yes"},		
+			"location" : {"type" : "geo_point", "lat_lon" : true, "geohash" : true, "store" : "yes"},		
+			"name" : {"type" : "string", "store" : "yes"},		
+			"phone" : {"type" : "string", "store" : "yes"},		
+			"state" : {"type" : "string", "store" : "yes"},		
+			"street" : {"type" : "string", "store" : "yes"},		
+			"zip" : {"type" : "string", "store" : "yes"}
+        }
+    }
+}

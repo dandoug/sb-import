@@ -1,0 +1,51 @@
+{
+  "sort": [
+    {
+      "_geo_distance": {
+        "location": {
+          "lat": 37.2163,
+          "lon": -121.97496
+        },
+        "order": "asc",
+        "unit": "mi"
+      }
+    }
+  ],
+  "from" : 0, "size" : 5,
+  "query": {
+    "filtered": {
+      "query": {
+        "field": {
+          "cat": "sb"
+        }
+      },
+      "filter": {
+        "geo_distance": {
+          "distance": "5mi",
+          "location": {
+            "lat": 37.2163,
+            "lon": -121.97496
+          }
+        }
+      }
+    }
+  },
+  "fields": [
+    "location",
+    "name",
+    "street",
+    "city",
+    "state",
+    "zip",
+    "phone"
+  ],
+  "script_fields" : {
+        "distance" : {
+            "parms"  : {
+				"lat": 37.2163,
+	            "lon": -121.97496 
+			},
+            "script" : "doc['location'].arcDistanceInKm(lat,lon)*0.621371192237"
+        }
+    }
+}

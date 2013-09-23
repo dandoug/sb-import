@@ -1,0 +1,1 @@
+Downloaded from [gps-data-team.com](http://www.gps-data-team.com/poi/united_states/restaurants/index.php?poi_data=restaurants&file=Starbucks-US&state=CA-California)
